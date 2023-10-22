@@ -48,6 +48,15 @@ const btn8 = document.querySelector("#btn8");
 const btn9 = document.querySelector("#btn9");
 const btn0 = document.querySelector("#btn0");
 const btnPer = document.querySelector("#btnPer");
+const btnClear = document.querySelector("#btnClear");
+const btnNeg = document.querySelector("#btnNeg");
+const btnBksp= document.querySelector("#btnBksp");
+
+const btnMult = document.querySelector("#btnMult");
+const btnDiv = document.querySelector("#btnDiv");
+const btnSubt = document.querySelector("#btnSubt");
+const btnAdd = document.querySelector("#btnAdd");
+const btnEq = document.querySelector("#btnEq")
 
 function buttonPress1() {
     let btnValue = btn1.textContent;
@@ -115,7 +124,34 @@ function buttonPressPer() {
     let numberToAdd = document.createTextNode(btnValue);
     displayText.appendChild(numberToAdd);
 }
+function buttonPressNeg() {
+    let textChildren = displayText.childNodes;
+    let firstChild = textChildren[0];
+    if (displayValue[0] === '-') {
+        let displayValueArray = displayValue.split('');
+        displayValueArray.splice(0, 1);
+        let newDisplayValue = displayValueArray.join('');
+        displayValue =  newDisplayValue;
+        displayText.removeChild(firstChild);
+    } else if (displayValue[0] !== '-') {
+        let displayValueArray = displayValue.split('');
+        displayValueArray.splice(0, 0, '-');
+        let newDisplayValue = displayValueArray.join('');
+        displayValue = newDisplayValue;
+        let negVal = document.createTextNode('-');
+        displayText.insertBefore(negVal, firstChild);
+    }
+}
 
+function buttonPressClear() {
+    displayValue = '';
+    let textChildren = displayText.childNodes;
+    for (i = textChildren.length - 1; i >= 0; i--) {
+        displayText.removeChild(textChildren[i]);
+    }
+}
+btnClear.addEventListener('click', buttonPressClear);
+btnNeg.addEventListener('click', buttonPressNeg);
 btn1.addEventListener('click', buttonPress1);
 btn2.addEventListener('click', buttonPress2);
 btn3.addEventListener('click', buttonPress3);
