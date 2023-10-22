@@ -26,7 +26,7 @@ function operate(operator, num1, num2) {
     else if (operator === '-') {
         answer = subtract(num1, num2);
     }
-    else if (operator === 'x' || operator === '*') {
+    else if (operator === '*') {
         answer = multiply(num1, num2);
     }
     else if (operator === '/' ) {
@@ -142,16 +142,27 @@ function buttonPressNeg() {
         displayText.insertBefore(negVal, firstChild);
     }
 }
-
 function buttonPressClear() {
+    if (displayText.hasChildNodes() === true) {
     displayValue = '';
     let textChildren = displayText.childNodes;
     for (i = textChildren.length - 1; i >= 0; i--) {
         displayText.removeChild(textChildren[i]);
+        }
     }
 }
+
+function buttonPressBksp() {
+    if (displayText.hasChildNodes() === true) {
+    let textChildren = displayText.childNodes;
+    let lastChild = textChildren[textChildren.length - 1];
+    displayText.removeChild(lastChild);
+    }
+}
+
 btnClear.addEventListener('click', buttonPressClear);
 btnNeg.addEventListener('click', buttonPressNeg);
+btnBksp.addEventListener('click', buttonPressBksp);
 btn1.addEventListener('click', buttonPress1);
 btn2.addEventListener('click', buttonPress2);
 btn3.addEventListener('click', buttonPress3);
