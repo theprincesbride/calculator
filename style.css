@@ -116,6 +116,93 @@ body {
     border-left-color: #252525;
 }
 
-.button-area {
+.display-text {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px;
+    padding-right: 30px;
+    height: 200px;
+    font-family: 'Quantico', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 110px;
 
+}
+/*overall button area*/
+.button-area {
+    justify-self: center;
+    align-self: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    width: 650px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+
+}
+
+/*top row of buttons*/
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+
+
+}
+
+/*each top button*/
+.top {
+    font-family: 'Aldrich', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #80001cc0;
+    color: aliceblue;
+    font-size: 50px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.top:active {
+    background-color: #420110;
+    color: #6e7377
+}
+
+/*area with numbers & operators*/
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px 10px;
+
+
+}
+
+.number {
+    font-family: 'Aldrich', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aliceblue;
+    color: #252525;
+    font-size: 30px;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.number:active {
+    background-color: #6e7377;
+    color: #000000;
+}
+
+.operator {
+    font-family: 'Aldrich', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: goldenrod;
+    color: aliceblue;
+    font-size: 30px;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.operator:active {
+    background-color: rgb(122, 93, 20);
+    color:#6e7377
 }
