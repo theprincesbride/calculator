@@ -1,0 +1,48 @@
+/* Aldrich for keys */
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Alegreya:ital@0;1&display=swap');
+/* Quantico for display font */
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+/* Press Start 2P for page font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-image: url('images/repeated-square.webp');
+
+}
+
+.title {
+    font-family: 'Press Start 2P';
+    font-size: 50px;
+    text-shadow: #FC0 1px 0 10px;
+
+}
+
+.calculate {
+    font-family: 'Press Start 2P';
+    font-size: 30px;
+    text-shadow: rgb(60, 156, 81) 1px 0 10px;
+
+}
+
+.calculator-body {
+    height: 1000px;
+    width: 700px;
+    margin: 50px;
+    margin-bottom: 100px;
+    background-image: url('images/micro_carbon.png');
+    border-color:rgb(14, 14, 17);
+    border-width: 20px;
+    border-radius: 10px;
+    border-right-style: groove;
+    border-bottom-style: groove;
+    border-top-style: solid;
+    border-left-style: solid;
+    box-shadow: 0 8px 16px 0 rgb(0,0,0,0.2);
+}
