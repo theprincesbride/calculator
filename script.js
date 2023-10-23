@@ -11,8 +11,14 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if (num2 === 0) {
+        alert("You can't divide by 0 silly goose!  I'm changing the divisor to 1");
+        return num1 / 1;
+    }
     return num1 / num2;
 }
+
+
 
 let num1;
 let num2;
@@ -31,7 +37,11 @@ function operate(operator, num1, num2) {
     }
     else if (operator === '/' ) {
         answer = divide(num1, num2);
-    } return answer;
+    }
+    else if (operator === '=') {
+        answer = num2;
+    }
+    return answer;
 }
 
 let displayText = document.querySelector(".display-text");
@@ -56,10 +66,10 @@ const btnMult = document.querySelector("#btnMult");
 const btnDiv = document.querySelector("#btnDiv");
 const btnSubt = document.querySelector("#btnSubt");
 const btnAdd = document.querySelector("#btnAdd");
-const btnEq = document.querySelector("#btnEq")
+const btnEqual = document.querySelector("#btnEqual")
 
 function buttonPress1() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn1.textContent;
     if (!operators.includes(lastChar)) {
@@ -77,7 +87,7 @@ function buttonPress1() {
     }
 }
 function buttonPress2() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn2.textContent;
     if (!operators.includes(lastChar)) {
@@ -95,7 +105,7 @@ function buttonPress2() {
     }
 }
 function buttonPress3() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn3.textContent;
     if (!operators.includes(lastChar)) {
@@ -114,7 +124,7 @@ function buttonPress3() {
 
 }
 function buttonPress4() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn4.textContent;
     if (!operators.includes(lastChar)) {
@@ -132,7 +142,7 @@ function buttonPress4() {
     }
 }
 function buttonPress5() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn5.textContent;
     if (!operators.includes(lastChar)) {
@@ -150,7 +160,7 @@ function buttonPress5() {
     }
 }
 function buttonPress6() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn6.textContent;
     if (!operators.includes(lastChar)) {
@@ -168,7 +178,7 @@ function buttonPress6() {
     }
 }
 function buttonPress7() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn7.textContent;
     if (!operators.includes(lastChar)) {
@@ -186,7 +196,7 @@ function buttonPress7() {
     }
 }
 function buttonPress8() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn8.textContent;
     if (!operators.includes(lastChar)) {
@@ -204,7 +214,7 @@ function buttonPress8() {
     }
 }
 function buttonPress9() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn9.textContent;
     if (!operators.includes(lastChar)) {
@@ -222,7 +232,7 @@ function buttonPress9() {
     }
 }
 function buttonPress0() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn0.textContent;
     if (!operators.includes(lastChar)) {
@@ -240,7 +250,7 @@ function buttonPress0() {
     }
 }
 function buttonPressPer() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let decimal = '.';
     let btnValue = btnPer.textContent;
@@ -261,7 +271,7 @@ function buttonPressPer() {
     }
 }
 function buttonPressNeg() {
-    let operators = '+-*/';
+    let operators = '+-*/=';
     let lastChar = displayValue[displayValue.length - 1];
     let textChildren = displayText.childNodes;
     let firstChild = textChildren[0];
@@ -297,6 +307,9 @@ function buttonPressNeg() {
 
 
 function buttonPressClear() {
+    num1 = undefined;
+    num2 = undefined;
+    operator = undefined;
     if (displayText.hasChildNodes() === true) {
     displayValue = '';
     let textChildren = displayText.childNodes;
@@ -315,41 +328,150 @@ function buttonPressBksp() {
 }
 
 function buttonPressAdd() {
-    if (num1 === undefined) {
-    let btnValue = btnAdd.textContent;
-    operator = btnValue;
-    num1 = parseInt(displayValue)
-    displayValue += btnValue;
+    if (displayValue === '') {
+    }
+    else if (displayValue !== '') {
+        if (num1 === undefined) {
+            let btnValue = btnAdd.textContent;
+            operator = btnValue;
+            num1 = parseInt(displayValue);
+            displayValue += btnValue;
+        }
+        else if (num1 !== undefined && operator !== undefined) {
+            let btnValue = btnAdd.textContent;
+            num2 = parseInt(displayValue);
+            let solution = operate(operator, num1, num2);
+            num1 = solution;
+            num2 = undefined;
+            operator = btnValue;
+            displayValue = solution.toString();
+            displayValue += btnValue;
+            let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+            let numberToAdd = document.createTextNode(solution);
+            displayText.appendChild(numberToAdd);
+        }
     }
 }
 
 function buttonPressSubt() {
-    if (num1 === undefined) {
-    let btnValue = btnSubt.textContent;
-    operator = btnValue;
-    num1 = parseInt(displayValue)
-    displayValue += btnValue;
+    if (displayValue === '') {
+    }
+    else if (displayValue !== '') {
+        if (num1 === undefined) {
+            let btnValue = btnSubt.textContent;
+            operator = btnValue;
+            num1 = parseInt(displayValue);
+            displayValue += btnValue;
+        }
+        else if (num1 !== undefined && operator !== undefined) {
+            let btnValue = btnSubt.textContent;
+            num2 = parseInt(displayValue);
+            let solution = operate(operator, num1, num2);
+            num1 = solution;
+            num2 = undefined;
+            operator = btnValue;
+            displayValue = solution.toString();
+            displayValue += btnValue;
+            let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+            let numberToAdd = document.createTextNode(solution);
+            displayText.appendChild(numberToAdd);
+        }
     }
 }
 
 function buttonPressDiv() {
-    if (num1 === undefined) {
-    let btnValue = btnDiv.textContent;
-    operator = btnValue;
-    num1 = parseInt(displayValue)
-    displayValue += btnValue;
+    if (displayValue === '') {
+    }
+    else if (displayValue !== '') {
+        if (num1 === undefined) {
+            let btnValue = btnDiv.textContent;
+            operator = btnValue;
+            num1 = parseInt(displayValue);
+            displayValue += btnValue;
+        }
+        else if (num1 !== undefined && operator !== undefined) {
+            let btnValue = btnDiv.textContent;
+            num2 = parseInt(displayValue);
+            let solution = operate(operator, num1, num2);
+            num1 = solution;
+            num2 = undefined;
+            operator = btnValue;
+            displayValue = solution.toString();
+            displayValue += btnValue;
+            let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+            let numberToAdd = document.createTextNode(solution);
+            displayText.appendChild(numberToAdd);
+        }
     }
 }
-
 function buttonPressMult() {
-    if (num1 === undefined) {
-    let btnValue = btnMult.textContent;
-    operator = btnValue;
-    num1 = parseInt(displayValue)
-    displayValue += btnValue;
+    if (displayValue === '') {
+    }
+    else if (displayValue !== '') {
+        if (num1 === undefined) {
+            let btnValue = btnMult.textContent;
+            operator = btnValue;
+            num1 = parseInt(displayValue);
+            displayValue += btnValue;
+        }
+        else if (num1 !== undefined && operator !== undefined) {
+            let btnValue = btnMult.textContent;
+            num2 = parseInt(displayValue);
+            let solution = operate(operator, num1, num2);
+            num1 = solution;
+            num2 = undefined;
+            operator = btnValue;
+            displayValue = solution.toString();
+            displayValue += btnValue;
+            let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+            let numberToAdd = document.createTextNode(solution);
+            displayText.appendChild(numberToAdd);
+        }
     }
 }
 
+function buttonPressEqual() {
+    if (displayValue === '') {
+    }
+    else if (displayValue !== '') {
+        if (num1 === undefined) {
+            let btnValue = btnEqual.textContent;
+            operator = btnValue;
+            num1 = parseInt(displayValue);
+            displayValue += btnValue;
+
+        }
+        else if (num1 !== undefined && operator !== undefined) {
+            let btnValue = btnEqual.textContent;
+            num2 = parseInt(displayValue);
+            let solution = operate(operator, num1, num2);
+            num1 = solution;
+            num2 = undefined;
+            operator = btnValue;
+            displayValue = solution.toString();
+            let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+            let numberToAdd = document.createTextNode(solution);
+            displayText.appendChild(numberToAdd);
+            displayValue += btnValue;
+        }
+    }
+}
+btnEqual.addEventListener('click', buttonPressEqual);
 btnClear.addEventListener('click', buttonPressClear);
 btnNeg.addEventListener('click', buttonPressNeg);
 btnBksp.addEventListener('click', buttonPressBksp);
