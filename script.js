@@ -346,14 +346,22 @@ function buttonPressAdd() {
             num2 = undefined;
             operator = btnValue;
             let roundedSolution = round(solution);
-            displayValue = roundedSolution.toString();
+            let roundedSolutionString = roundedSolution.toString();
+            if (roundedSolutionString.length >= 8) {
+                let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+                let numberToAdd = document.createTextNode("Too Full!");
+                displayText.appendChild(numberToAdd);
+            } else {displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
             let numberToAdd = document.createTextNode(roundedSolution);
-            displayText.appendChild(numberToAdd);
+            displayText.appendChild(numberToAdd);}
         }
     }
 }
@@ -376,14 +384,22 @@ function buttonPressSubt() {
             num2 = undefined;
             operator = btnValue;
             let roundedSolution = round(solution);
-            displayValue = roundedSolution.toString();
+            let roundedSolutionString = roundedSolution.toString();
+            if (roundedSolutionString.length >= 8) {
+                let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+                let numberToAdd = document.createTextNode("Too Full!");
+                displayText.appendChild(numberToAdd);
+            } else {displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
             let numberToAdd = document.createTextNode(roundedSolution);
-            displayText.appendChild(numberToAdd);
+            displayText.appendChild(numberToAdd);}
         }
     }
 }
@@ -406,14 +422,22 @@ function buttonPressDiv() {
             num2 = undefined;
             operator = btnValue;
             let roundedSolution = round(solution);
-            displayValue = roundedSolution.toString();
+            let roundedSolutionString = roundedSolution.toString();
+            if (roundedSolutionString.length >= 8) {
+                let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+                let numberToAdd = document.createTextNode("Too Full!");
+                displayText.appendChild(numberToAdd);
+            } else {displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
             let numberToAdd = document.createTextNode(roundedSolution);
-            displayText.appendChild(numberToAdd);
+            displayText.appendChild(numberToAdd);}
         }
     }
 }
@@ -435,14 +459,22 @@ function buttonPressMult() {
             num2 = undefined;
             operator = btnValue;
             let roundedSolution = round(solution);
-            displayValue = roundedSolution.toString();
+            let roundedSolutionString = roundedSolution.toString();
+            if (roundedSolutionString.length >= 8) {
+                let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+                let numberToAdd = document.createTextNode("Too Full!");
+                displayText.appendChild(numberToAdd);
+            } else {displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
             let numberToAdd = document.createTextNode(roundedSolution);
-            displayText.appendChild(numberToAdd);
+            displayText.appendChild(numberToAdd);}
         }
     }
 }
@@ -466,18 +498,25 @@ function buttonPressEqual() {
             num2 = undefined;
             operator = btnValue;
             let roundedSolution = round(solution);
-            displayValue = roundedSolution.toString();
+            let roundedSolutionString = roundedSolution.toString();
+            if (roundedSolutionString.length >= 8) {
+                let textChildren = displayText.childNodes;
+            for (i = textChildren.length - 1; i >= 0; i--) {
+                displayText.removeChild(textChildren[i]);
+                }
+                let numberToAdd = document.createTextNode("Too Full!");
+                displayText.appendChild(numberToAdd);
+            } else {displayValue = roundedSolution.toString();
+            displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
             let numberToAdd = document.createTextNode(roundedSolution);
-            displayText.appendChild(numberToAdd);
-            displayValue += btnValue;
+            displayText.appendChild(numberToAdd);}
         }
     }
 }
-
 
 
 function round(value, decimals = 4) {
