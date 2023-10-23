@@ -193,7 +193,7 @@ body {
     color: #000000;
 }
 
-.operator {
+.operator, .decimal {
     font-family: 'Aldrich', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: goldenrod;
     color: aliceblue;
@@ -202,7 +202,7 @@ body {
     border-radius: 10px;
 }
 
-.operator:active {
+.operator:active, .decimal:active {
     background-color: rgb(122, 93, 20);
     color:#6e7377
 }

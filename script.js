@@ -59,89 +59,243 @@ const btnAdd = document.querySelector("#btnAdd");
 const btnEq = document.querySelector("#btnEq")
 
 function buttonPress1() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
     let btnValue = btn1.textContent;
+    if (!operators.includes(lastChar)) {
     displayValue += btnValue;
     let numberToAdd = document.createTextNode(btnValue);
     displayText.appendChild(numberToAdd);
-}
-function buttonPress2() {
-    let btnValue = btn2.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress3() {
-    let btnValue = btn3.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress4() {
-    let btnValue = btn4.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress5() {
-    let btnValue = btn5.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress6() {
-    let btnValue = btn6.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress7() {
-    let btnValue = btn7.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress8() {
-    let btnValue = btn8.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress9() {
-    let btnValue = btn9.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPress0() {
-    let btnValue = btn0.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPressPer() {
-    let btnValue = btnPer.textContent;
-    displayValue += btnValue;
-    let numberToAdd = document.createTextNode(btnValue);
-    displayText.appendChild(numberToAdd);
-}
-function buttonPressNeg() {
-    let textChildren = displayText.childNodes;
-    let firstChild = textChildren[0];
-    if (displayValue[0] === '-') {
-        let displayValueArray = displayValue.split('');
-        displayValueArray.splice(0, 1);
-        let newDisplayValue = displayValueArray.join('');
-        displayValue =  newDisplayValue;
-        displayText.removeChild(firstChild);
-    } else if (displayValue[0] !== '-') {
-        let displayValueArray = displayValue.split('');
-        displayValueArray.splice(0, 0, '-');
-        let newDisplayValue = displayValueArray.join('');
-        displayValue = newDisplayValue;
-        let negVal = document.createTextNode('-');
-        displayText.insertBefore(negVal, firstChild);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
     }
 }
+function buttonPress2() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn2.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress3() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn3.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+
+}
+function buttonPress4() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn4.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress5() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn5.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress6() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn6.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress7() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn7.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress8() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn8.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress9() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn9.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPress0() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let btnValue = btn0.textContent;
+    if (!operators.includes(lastChar)) {
+    displayValue += btnValue;
+    let numberToAdd = document.createTextNode(btnValue);
+    displayText.appendChild(numberToAdd);
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPressPer() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let decimal = '.';
+    let btnValue = btnPer.textContent;
+    if (!operators.includes(lastChar)) {
+        if (!displayValue.includes(decimal)) {
+          displayValue += btnValue;
+            let numberToAdd = document.createTextNode(btnValue);
+            displayText.appendChild(numberToAdd);
+        }
+    } else if (operators.includes(lastChar)) {
+        displayValue = btnValue;
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode(btnValue);
+        displayText.appendChild(numberToAdd);
+    }
+}
+function buttonPressNeg() {
+    let operators = '+-*/';
+    let lastChar = displayValue[displayValue.length - 1];
+    let textChildren = displayText.childNodes;
+    let firstChild = textChildren[0];
+    if (displayValue === '-') {
+        displayValue = '';
+        displayText.removeChild(displayText.firstChild);
+    }
+    else if (!operators.includes(lastChar)) {
+        if (displayValue[0] === '-') {
+            let displayValueArray = displayValue.split('');
+            displayValueArray.splice(0, 1);
+            let newDisplayValue = displayValueArray.join('');
+            displayValue =  newDisplayValue;
+            displayText.removeChild(firstChild);
+        } else if (displayValue[0] !== '-') {
+            let displayValueArray = displayValue.split('');
+            displayValueArray.splice(0, 0, '-');
+            let newDisplayValue = displayValueArray.join('');
+            displayValue = newDisplayValue;
+            let negVal = document.createTextNode('-');
+            displayText.insertBefore(negVal, firstChild);
+        }
+    } else if (operators.includes(lastChar)) {
+        displayValue = '-';
+        let textChildren = displayText.childNodes;
+        for (i = textChildren.length - 1; i >= 0; i--) {
+            displayText.removeChild(textChildren[i]);
+        }
+        let numberToAdd = document.createTextNode('-');
+        displayText.appendChild(numberToAdd);
+    }
+}
+
+
 function buttonPressClear() {
     if (displayText.hasChildNodes() === true) {
     displayValue = '';
@@ -160,6 +314,42 @@ function buttonPressBksp() {
     }
 }
 
+function buttonPressAdd() {
+    if (num1 === undefined) {
+    let btnValue = btnAdd.textContent;
+    operator = btnValue;
+    num1 = parseInt(displayValue)
+    displayValue += btnValue;
+    }
+}
+
+function buttonPressSubt() {
+    if (num1 === undefined) {
+    let btnValue = btnSubt.textContent;
+    operator = btnValue;
+    num1 = parseInt(displayValue)
+    displayValue += btnValue;
+    }
+}
+
+function buttonPressDiv() {
+    if (num1 === undefined) {
+    let btnValue = btnDiv.textContent;
+    operator = btnValue;
+    num1 = parseInt(displayValue)
+    displayValue += btnValue;
+    }
+}
+
+function buttonPressMult() {
+    if (num1 === undefined) {
+    let btnValue = btnMult.textContent;
+    operator = btnValue;
+    num1 = parseInt(displayValue)
+    displayValue += btnValue;
+    }
+}
+
 btnClear.addEventListener('click', buttonPressClear);
 btnNeg.addEventListener('click', buttonPressNeg);
 btnBksp.addEventListener('click', buttonPressBksp);
@@ -174,3 +364,7 @@ btn8.addEventListener('click', buttonPress8);
 btn9.addEventListener('click', buttonPress9);
 btn0.addEventListener('click', buttonPress0);
 btnPer.addEventListener('click', buttonPressPer);
+btnAdd.addEventListener('click', buttonPressAdd);
+btnSubt.addEventListener('click', buttonPressSubt);
+btnDiv.addEventListener('click', buttonPressDiv);
+btnMult.addEventListener('click', buttonPressMult);
