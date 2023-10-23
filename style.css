@@ -125,6 +125,8 @@ body {
     height: 200px;
     font-family: 'Quantico', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 110px;
+    text-overflow: ellipsis;
+    overflow:hidden;
 
 }
 /*overall button area*/

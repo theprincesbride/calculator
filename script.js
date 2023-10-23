@@ -66,7 +66,8 @@ const btnMult = document.querySelector("#btnMult");
 const btnDiv = document.querySelector("#btnDiv");
 const btnSubt = document.querySelector("#btnSubt");
 const btnAdd = document.querySelector("#btnAdd");
-const btnEqual = document.querySelector("#btnEqual")
+const btnEqual = document.querySelector("#btnEqual");
+
 
 function buttonPress1() {
     let operators = '+-*/=';
@@ -334,23 +335,24 @@ function buttonPressAdd() {
         if (num1 === undefined) {
             let btnValue = btnAdd.textContent;
             operator = btnValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
             displayValue += btnValue;
         }
         else if (num1 !== undefined && operator !== undefined) {
             let btnValue = btnAdd.textContent;
-            num2 = parseInt(displayValue);
+            num2 = parseFloat(displayValue);
             let solution = operate(operator, num1, num2);
             num1 = solution;
             num2 = undefined;
             operator = btnValue;
-            displayValue = solution.toString();
+            let roundedSolution = round(solution);
+            displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
-            let numberToAdd = document.createTextNode(solution);
+            let numberToAdd = document.createTextNode(roundedSolution);
             displayText.appendChild(numberToAdd);
         }
     }
@@ -363,23 +365,24 @@ function buttonPressSubt() {
         if (num1 === undefined) {
             let btnValue = btnSubt.textContent;
             operator = btnValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
             displayValue += btnValue;
         }
         else if (num1 !== undefined && operator !== undefined) {
             let btnValue = btnSubt.textContent;
-            num2 = parseInt(displayValue);
+            num2 = parseFloat(displayValue);
             let solution = operate(operator, num1, num2);
             num1 = solution;
             num2 = undefined;
             operator = btnValue;
-            displayValue = solution.toString();
+            let roundedSolution = round(solution);
+            displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
-            let numberToAdd = document.createTextNode(solution);
+            let numberToAdd = document.createTextNode(roundedSolution);
             displayText.appendChild(numberToAdd);
         }
     }
@@ -392,23 +395,24 @@ function buttonPressDiv() {
         if (num1 === undefined) {
             let btnValue = btnDiv.textContent;
             operator = btnValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
             displayValue += btnValue;
         }
         else if (num1 !== undefined && operator !== undefined) {
             let btnValue = btnDiv.textContent;
-            num2 = parseInt(displayValue);
+            num2 = parseFloat(displayValue);
             let solution = operate(operator, num1, num2);
             num1 = solution;
             num2 = undefined;
             operator = btnValue;
-            displayValue = solution.toString();
+            let roundedSolution = round(solution);
+            displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
-            let numberToAdd = document.createTextNode(solution);
+            let numberToAdd = document.createTextNode(roundedSolution);
             displayText.appendChild(numberToAdd);
         }
     }
@@ -420,23 +424,24 @@ function buttonPressMult() {
         if (num1 === undefined) {
             let btnValue = btnMult.textContent;
             operator = btnValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
             displayValue += btnValue;
         }
         else if (num1 !== undefined && operator !== undefined) {
             let btnValue = btnMult.textContent;
-            num2 = parseInt(displayValue);
+            num2 = parseFloat(displayValue);
             let solution = operate(operator, num1, num2);
             num1 = solution;
             num2 = undefined;
             operator = btnValue;
-            displayValue = solution.toString();
+            let roundedSolution = round(solution);
+            displayValue = roundedSolution.toString();
             displayValue += btnValue;
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
-            let numberToAdd = document.createTextNode(solution);
+            let numberToAdd = document.createTextNode(roundedSolution);
             displayText.appendChild(numberToAdd);
         }
     }
@@ -449,44 +454,133 @@ function buttonPressEqual() {
         if (num1 === undefined) {
             let btnValue = btnEqual.textContent;
             operator = btnValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
             displayValue += btnValue;
 
         }
         else if (num1 !== undefined && operator !== undefined) {
             let btnValue = btnEqual.textContent;
-            num2 = parseInt(displayValue);
+            num2 = parseFloat(displayValue);
             let solution = operate(operator, num1, num2);
             num1 = solution;
             num2 = undefined;
             operator = btnValue;
-            displayValue = solution.toString();
+            let roundedSolution = round(solution);
+            displayValue = roundedSolution.toString();
             let textChildren = displayText.childNodes;
             for (i = textChildren.length - 1; i >= 0; i--) {
                 displayText.removeChild(textChildren[i]);
                 }
-            let numberToAdd = document.createTextNode(solution);
+            let numberToAdd = document.createTextNode(roundedSolution);
             displayText.appendChild(numberToAdd);
             displayValue += btnValue;
         }
     }
 }
+
+
+
+function round(value, decimals = 4) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  }
+
+
+function overDisplay() {
+    let textCount = displayText.textContent.length;
+    if (textCount >= 8) {
+        let numberToAdd = document.createTextNode('Too Full!');
+        let textChildren = displayText.childNodes;
+    for (i = textChildren.length - 1; i >= 0; i--) {
+        displayText.removeChild(textChildren[i]);
+        }
+        displayText.appendChild(numberToAdd);
+
+    }
+}
+
+
 btnEqual.addEventListener('click', buttonPressEqual);
 btnClear.addEventListener('click', buttonPressClear);
 btnNeg.addEventListener('click', buttonPressNeg);
+btnNeg.addEventListener('click', overDisplay);
 btnBksp.addEventListener('click', buttonPressBksp);
 btn1.addEventListener('click', buttonPress1);
+btn1.addEventListener('click', overDisplay);
 btn2.addEventListener('click', buttonPress2);
+btn2.addEventListener('click', overDisplay);
 btn3.addEventListener('click', buttonPress3);
+btn3.addEventListener('click', overDisplay);
 btn4.addEventListener('click', buttonPress4);
+btn4.addEventListener('click', overDisplay);
 btn5.addEventListener('click', buttonPress5);
+btn5.addEventListener('click', overDisplay);
 btn6.addEventListener('click', buttonPress6);
+btn6.addEventListener('click', overDisplay);
 btn7.addEventListener('click', buttonPress7);
+btn7.addEventListener('click', overDisplay);
 btn8.addEventListener('click', buttonPress8);
+btn8.addEventListener('click', overDisplay);
 btn9.addEventListener('click', buttonPress9);
+btn9.addEventListener('click', overDisplay);
 btn0.addEventListener('click', buttonPress0);
+btn0.addEventListener('click', overDisplay);
 btnPer.addEventListener('click', buttonPressPer);
+btnPer.addEventListener('click', overDisplay);
 btnAdd.addEventListener('click', buttonPressAdd);
 btnSubt.addEventListener('click', buttonPressSubt);
 btnDiv.addEventListener('click', buttonPressDiv);
 btnMult.addEventListener('click', buttonPressMult);
+
+document.addEventListener('keydown', (event) => {
+    let keyName = event.key;
+    console.log(keyName);
+    if (keyName === '1') {
+        buttonPress1();
+        overDisplay();
+    } else if (keyName === '2') {
+        buttonPress2();
+        overDisplay();
+    } else if (keyName === '3') {
+        buttonPress3();
+        overDisplay();
+    } else if (keyName === '4') {
+        buttonPress4();
+        overDisplay();
+    } else if (keyName === '5') {
+        buttonPress5();
+        overDisplay();
+    } else if (keyName === '6') {
+        buttonPress6();
+        overDisplay();
+    } else if (keyName === '7') {
+        buttonPress7();
+        overDisplay();
+    } else if (keyName === '8') {
+        buttonPress8();
+        overDisplay();
+    } else if (keyName === '9') {
+        buttonPress9();
+        overDisplay();
+    } else if (keyName === '0') {
+        buttonPress0();
+        overDisplay();
+    } else if (keyName === '.') {
+        buttonPressPer();
+        overDisplay();
+    } else if (keyName === 'Backspace') {
+        buttonPressBksp();
+    } else if (keyName === '+') {
+        buttonPressAdd();
+    } else if (keyName === '-') {
+        buttonPressSubt();
+    } else if (keyName === '/') {
+        buttonPressDiv();
+    } else if (keyName === '*' || keyName === 'x') {
+        buttonPressMult();
+    } else if (keyName === '=' || keyName === 'Enter') {
+        buttonPressEqual();
+    } else if (keyName === 'c') {
+        buttonPressClear();
+    }
+
+});
